@@ -1,4 +1,6 @@
-﻿using System;
+﻿//garvitthejain
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,12 +17,6 @@ public partial class Default2 : System.Web.UI.Page
 
     }
 
-
-
-
-
-
-
     public string getWhileLoopData()
     {
         string htmlStr = "";
@@ -32,14 +28,6 @@ public partial class Default2 : System.Web.UI.Page
         reader = cmd.ExecuteReader();
 
     
-
-       
-
-
-          
- 
-    
-
 
          while (reader.Read())
          {
@@ -53,10 +41,6 @@ public partial class Default2 : System.Web.UI.Page
          }
 
         
-
-
-
-     
 
 
         sql_con.Close();
@@ -100,6 +84,8 @@ public partial class Default2 : System.Web.UI.Page
             htmlStr += "<tr><td>" + itemnam + "</td><td>" + itemrate + "</td><td>" + itemauthr + "</td><td>"+ itemcate + "</td><td>"+ itemtop + "</td><td>"+ timereq + "</td><td><a href='download.aspx?fname=" + itemlink + "'  runat='Server'>" + itemlink
  + "</td></tr></a>";
 
+            
+           
 
         }
 
