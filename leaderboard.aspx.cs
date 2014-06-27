@@ -20,6 +20,8 @@ public partial class leaderboard : System.Web.UI.Page
     public string getLeaderBoard()
     {
         string htmlStr = "";
+        String usename = Session[0].ToString();
+        String passs = Session[1].ToString();
 
         SqlConnection sql_con = new SqlConnection("Data Source=Boron\\ag;Initial Catalog=Scratch;Integrated Security=SSPI");
         sql_con.Open();

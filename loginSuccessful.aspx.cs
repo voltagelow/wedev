@@ -10,20 +10,23 @@ using System.Data.SqlClient;
 
 public partial class Default2 : System.Web.UI.Page
 {
+    
     protected void Page_Load(object sender, EventArgs e)
     {
 
-
+        
 
     }
 
     public string getWhileLoopData()
     {
         string htmlStr = "";
-
+        String username = Session["username"].ToString();
+        String password = Session["password"].ToString();
         SqlConnection sql_con = new SqlConnection("Data Source=Boron\\ag;Initial Catalog=Scratch;Integrated Security=SSPI");
         sql_con.Open();
-        SqlCommand cmd = new SqlCommand("select *  from ratings", sql_con);
+      
+        SqlCommand cmd = new SqlCommand("select *  from ratings where username='"+username+"' order by daterated desc;", sql_con);
         SqlDataReader reader = null;
         reader = cmd.ExecuteReader();
 
@@ -62,6 +65,9 @@ public partial class Default2 : System.Web.UI.Page
     public string recommendeddata()
     {
         string htmlStr = "";
+     
+
+
 
         SqlConnection sql_con = new SqlConnection("Data Source=Boron\\ag;Initial Catalog=Scratch;Integrated Security=SSPI");
         sql_con.Open();
@@ -121,6 +127,10 @@ public partial class Default2 : System.Web.UI.Page
 
 
     protected void TextBox1_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+    protected void TextBox1_TextChanged1(object sender, EventArgs e)
     {
 
     }

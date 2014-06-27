@@ -17,6 +17,10 @@ public partial class Default2 : System.Web.UI.Page
     {
         String username = l_username.Value;
         String password = l_password.Value;
+
+        Session["username"] = username;
+        Session["password"] = password;
+        
         using (connection)
         {
             SqlCommand command = new SqlCommand(
