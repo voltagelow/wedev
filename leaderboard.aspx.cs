@@ -17,13 +17,13 @@ public partial class leaderboard : System.Web.UI.Page
 
 
 
-    public string getWhileLoopData()
+    public string getLeaderBoard()
     {
         string htmlStr = "";
 
         SqlConnection sql_con = new SqlConnection("Data Source=Boron\\ag;Initial Catalog=Scratch;Integrated Security=SSPI");
         sql_con.Open();
-        SqlCommand cmd = new SqlCommand("select top 100 * from customers", sql_con);
+        SqlCommand cmd = new SqlCommand("select username,itemidfrom ratings * from customers", sql_con);
         SqlDataReader reader = null;
         reader = cmd.ExecuteReader();
 

@@ -23,7 +23,7 @@ public partial class Default2 : System.Web.UI.Page
 
         SqlConnection sql_con = new SqlConnection("Data Source=Boron\\ag;Initial Catalog=Scratch;Integrated Security=SSPI");
         sql_con.Open();
-        SqlCommand cmd = new SqlCommand("select top 100 * from customers", sql_con);
+        SqlCommand cmd = new SqlCommand("select *  from ratings", sql_con);
         SqlDataReader reader = null;
         reader = cmd.ExecuteReader();
 
@@ -31,11 +31,13 @@ public partial class Default2 : System.Web.UI.Page
 
          while (reader.Read())
          {
-              int usereId = reader.GetInt32(0);
-              String ItemId = reader.GetString(1);
-              String rating = reader.GetString(2);
-              String daterated = reader.GetString(3);
-                htmlStr += "<tr><td>" + usereId + "</td><td>" + ItemId + "</td><td>" + rating + "</td><td><a href='download.aspx?fname="+daterated+"' onclick=getId("+daterated+") runat='Server'>" + daterated + "</td></tr></a>";
+             int ItemId = reader.GetInt32(0);
+              
+              String userename = reader.GetString(1);
+
+              int rating = reader.GetInt32(2);
+              DateTime daterated = reader.GetDateTime(3);
+                htmlStr += "<tr><td>" + ItemId + "</td><td>" + userename + "</td><td>" + rating + "</td><td><a href='download.aspx?fname="+daterated+"' onclick=getId("+daterated+") runat='Server'>" + daterated + "</td></tr></a>";
 
 
          }

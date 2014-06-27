@@ -25,7 +25,7 @@ height:300px;overflow: scroll;">
         </tr>
 
 
-        <%=getWhileLoopData()%>
+        <%=getLeaderBoard()%>
 
     </table>
   
