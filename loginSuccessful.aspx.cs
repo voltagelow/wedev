@@ -41,7 +41,7 @@ public partial class Default2 : System.Web.UI.Page
               int rating = reader.GetInt32(2);
               DateTime daterated = reader.GetDateTime(3);
               String itemname = reader.GetString(4);
-              htmlStr += "<tr><td>" + itemname +   "</td><td>" + rating  + "</td><td><a href='download.aspx?fname=" + daterated + "' onclick=getId(" + daterated + ") runat='Server'>" + daterated + "</td></tr></a>";
+              htmlStr += "<tr><td>" + itemname +   "</td><td>" + rating  + "</td><td>" + daterated + "</td></tr>";
 
 
          }
@@ -78,6 +78,7 @@ public partial class Default2 : System.Web.UI.Page
 
         while (reader.Read())
         {
+            int itemid = reader.GetInt32(7);
             String itemnam = reader.GetString(0);
             String itemlink = reader.GetString(1);
            
@@ -90,7 +91,7 @@ public partial class Default2 : System.Web.UI.Page
             int timereq = reader.GetInt32(6);
             
 
-            htmlStr += "<tr><td>" + itemnam + "</td><td>" + itemrate + "</td><td>" + itemauthr + "</td><td>"+ itemcate + "</td><td>"+ itemtop + "</td><td>"+ timereq + "</td><td><a href='download.aspx?fname=" + itemlink + "'  runat='Server'>" + itemlink
+            htmlStr += "<tr><td>" + itemnam + "</td><td>" + itemrate + "</td><td>" + itemauthr + "</td><td>"+ itemcate + "</td><td>"+ itemtop + "</td><td>"+ timereq + "</td><td><a href='download.aspx?fname=" + itemlink + "&itemid="+itemid+"'  runat='Server'>" + itemlink
  + "</td></tr></a>";
 
             
