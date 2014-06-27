@@ -25,8 +25,8 @@ public partial class Default2 : System.Web.UI.Page
         String password = Session["password"].ToString();
         SqlConnection sql_con = new SqlConnection("Data Source=Boron\\ag;Initial Catalog=Scratch;Integrated Security=SSPI");
         sql_con.Open();
-      
-        SqlCommand cmd = new SqlCommand("select *  from ratings where username='"+username+"' order by daterated desc;", sql_con);
+
+        SqlCommand cmd = new SqlCommand("select i.itemid,username,r.rating,r.daterated,itemname from  Items i inner join ratings r on i.ItemId=r.itemid   where username='" + username + "' order by daterated desc;", sql_con);
         SqlDataReader reader = null;
         reader = cmd.ExecuteReader();
 
@@ -40,7 +40,8 @@ public partial class Default2 : System.Web.UI.Page
 
               int rating = reader.GetInt32(2);
               DateTime daterated = reader.GetDateTime(3);
-                htmlStr += "<tr><td>" + ItemId + "</td><td>" + userename + "</td><td>" + rating + "</td><td><a href='download.aspx?fname="+daterated+"' onclick=getId("+daterated+") runat='Server'>" + daterated + "</td></tr></a>";
+              String itemname = reader.GetString(4);
+              htmlStr += "<tr><td>" + itemname +   "</td><td>" + rating  + "</td><td><a href='download.aspx?fname=" + daterated + "' onclick=getId(" + daterated + ") runat='Server'>" + daterated + "</td></tr></a>";
 
 
          }

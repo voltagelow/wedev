@@ -30,8 +30,8 @@ height:300px;overflow: scroll;">
      <table class="table table-hover"  >
         <tr >
                               
-            <td>ItemId </td>            
-            <td>UserName</td>  
+            <td>ItemName </td>            
+      
             <td>Rating</td>                      
        <td>DateRated</td>                      
        
