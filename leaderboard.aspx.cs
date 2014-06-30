@@ -25,17 +25,17 @@ public partial class leaderboard : System.Web.UI.Page
 
         SqlConnection sql_con = new SqlConnection("Data Source=Boron\\ag;Initial Catalog=Scratch;Integrated Security=SSPI");
         sql_con.Open();
-        SqlCommand cmd = new SqlCommand("select username,itemidfrom ratings * from customers", sql_con);
+        SqlCommand cmd = new SqlCommand("select top 10 sum(rating) as total_rating,i.ItemId,i.ItemAuthor ,i.ItemName from Items i inner join ratings r on i.ItemId=r.itemid group by i.ItemId,i.ItemAuthor ,i.ItemName order by total_rating desc ", sql_con);
         SqlDataReader reader = null;
         reader = cmd.ExecuteReader();
 
         while (reader.Read())
         {
-            int usereId = reader.GetInt32(0);
-            String ItemId = reader.GetString(1);
-            String rating = reader.GetString(2);
-            String daterated = reader.GetString(3);
-            htmlStr += "<tr><td>" + usereId + "</td><td>" + ItemId + "</td><td>" + rating + "</td><td><a href='download.aspx?fname=" + daterated + "' onclick=getId(" + daterated + ") runat='Server'>" + daterated + "</td></tr></a>";
+            int sum = reader.GetInt32(0);
+          //int itemId = reader.GetInt32(1);
+            String itemAuthor = reader.GetString(2);
+            String itemname = reader.GetString(3);
+            htmlStr += "<tr><td>" + itemAuthor + "</td><td>" + itemname + "</td><td>" + sum + "</td><td> ";
 
 
         }

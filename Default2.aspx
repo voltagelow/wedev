@@ -60,7 +60,7 @@
 
 
  <div class="col-xs-4 col-md-offset-0">
-<img src="fb.png" alt='garvit' class="img-circle"></img>
+<img src="fb.png" alt='garvit' class="img-circle"/>
 </div>
 
 

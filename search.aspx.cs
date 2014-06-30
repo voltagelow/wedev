@@ -92,7 +92,7 @@ public partial class search : System.Web.UI.Page
 
             SqlConnection sql_con = new SqlConnection("Data Source=Boron\\ag;Initial Catalog=Scratch;Integrated Security=SSPI");
             sql_con.Open();
-            SqlCommand cmd = new SqlCommand("select top 10 itemName, ItemLink,lastratedon,itemrating,itemauthor,Timereq from items where itemcategory='"+vcategory+"' and itemtopic ='" + vtopic + "' and timereq>" + lowerTime + " and timereq<" + upperTime + "", sql_con);
+            SqlCommand cmd = new SqlCommand("select top 10 itemName, ItemLink,lastratedon,itemrating,itemauthor,Timereq from items where itemcategory='"+vcategory+"' and itemtopic ='" + vtopic + "' and timereq> 0 and timereq<" + upperTime + "", sql_con);
             SqlDataReader reader = null;
             reader = cmd.ExecuteReader();
 

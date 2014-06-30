@@ -17,10 +17,10 @@ height:300px;overflow: scroll;">
      <table class="table table-hover"  >
         <tr >
                               
-            <td> UserId</td>            
-            <td>ItemId</td>  
-            <td>Rating</td>                      
-       <td>DateRated</td>                      
+            <td> ItemAuthor</td>            
+            <td>ItemName</td>  
+            <td>TotalRating</td>                      
+                        
        
         </tr>
 

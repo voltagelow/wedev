@@ -76,7 +76,7 @@ onselectedindexchanged="ddlTopic_SelectedIndexChanged"></asp:DropDownList>
     <td>Last Rated On</td>
     <td>Rating</td>
     <td>Author</td>
-    <td>Rate</td>
+    <td>TimeRequired</td>
     </tr>
     <%=showhere() %>
   </table>

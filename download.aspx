@@ -8,10 +8,24 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    <h1>Downloading......</h1>
-    </div>
-    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    <p>
+        Content Downloaded...</p>
+    <p>
+        Please rate us :
+        <asp:RadioButtonList ID="RadioButtonList1" runat="server" 
+            onselectedindexchanged="RadioButtonList1_SelectedIndexChanged" 
+            
+            RepeatDirection="Horizontal" AutoPostBack="True">
+            <asp:ListItem Value="1"></asp:ListItem>
+            <asp:ListItem Value="2"></asp:ListItem>
+            <asp:ListItem Value="3"></asp:ListItem>
+            <asp:ListItem Value="4"></asp:ListItem>
+            <asp:ListItem Value="5"></asp:ListItem>
+        </asp:RadioButtonList>
+
+        <label runat="server" id="test1"></label>
+
+    </p>
     </form>
 </body>
 </html>
